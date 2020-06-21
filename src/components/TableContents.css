@@ -1,0 +1,32 @@
+.TableHeader {
+  width: 100%; 
+  text-align: left; 
+  background-color: #6a7b76; 
+  color: rgb(255, 255, 255);
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: sans-serif;
+  width: 100%;
+  text-align: left;
+}
+
+tr {
+  border-bottom: 0.5px solid rgb(193, 191, 191);
+}
+
+td {
+  padding: 5px 15px;
+}
+
+th {
+  padding: 10px 15px;
+}
+
+td.col-resizer {
+  /* width: 0.05em; */
+  background-color: rgba(193, 191, 191, 0.317);
+  padding: 1px;
+}
