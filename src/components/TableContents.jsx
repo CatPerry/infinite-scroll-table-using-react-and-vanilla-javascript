@@ -109,7 +109,7 @@ export class TableContents extends Component {
     return (
       <thead className='TableHeader'>
         <tr>
-          <th onClick={() => this.handleColumnHeaderClick('name.first')}>Name</th>
+          <th className='SortByName' onClick={() => this.handleColumnHeaderClick('name.first')}>Name</th>
           <ColumnResizer className='col-resizer' minWidth={0} />
           <th>Phone</th>
           <ColumnResizer className='col-resizer' minWidth={0} />

@@ -30,3 +30,8 @@ td.col-resizer {
   background-color: rgba(193, 191, 191, 0.317);
   padding: 1px;
 }
+
+.SortByName:hover {
+  cursor: pointer;
+  background-color: #7e938c; 
+}
