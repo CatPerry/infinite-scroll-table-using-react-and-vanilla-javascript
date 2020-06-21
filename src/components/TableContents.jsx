@@ -12,7 +12,7 @@ export class TableContents extends Component {
     this.state = {
       people: [],
       sortParams: {
-        direction: 'desc'
+        direction: 'asc'
       }
     };
   }
@@ -20,15 +20,7 @@ export class TableContents extends Component {
 
   componentDidMount() {
     this.lazyLoadRow();
-    this.fetchPeopleData();
   }
-
-  fetchPeopleData = async () => {
-    const res = await fetch(`https://randomuser.me/api/?page=${this.currentScrollPosition}&results=20`);
-    res.json()
-      .then((res) => this.setState({ people: [...res.results] }))
-      .catch((err) => console.log(err));
-  };
 
   /** Lazy loading */
   intersectionCallback = async (entries, observer) => {
@@ -41,14 +33,14 @@ export class TableContents extends Component {
       console.log(err);
     }
 
-    this.setState({ people: [...this.state.people, ...data.results] });
+    this.setState({ people: orderBy([...this.state.people, ...data.results], ['name.first'], [this.state.sortParams.direction]) });
 
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         // append the current row in visible area
         const divToAppendReactElement = document.createElement('div');
         divToAppendReactElement.id = `dom${this.currentScrollPosition}`;
-        const newElement = ReactDOM.render(this.renderTableElements(this.state.people), divToAppendReactElement);
+        const newElement = ReactDOM.render(this.renderTableElements([...this.state.people]), divToAppendReactElement);
         const parentNode = entry.target.parentNode;
         const target = document.getElementById(`end-table-${this.currentScrollPosition}`);
         // append the element just before the sentinel
@@ -84,7 +76,7 @@ export class TableContents extends Component {
     // Toggle direction
     const sortDirection = direction === "desc" ? "asc" : "desc";
     // Sort people  
-    let sortedPeople = orderBy(this.state.people, [sortKey], [sortDirection]);
+    let sortedPeople = orderBy([...this.state.people], [sortKey], [sortDirection]);
     //Update component state with new data
     this.setState({
       people: sortedPeople,
