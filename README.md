@@ -4,13 +4,13 @@ This is an infinite scroll/lazy load table built in React without the use of any
 
 TODO:<br />
 Expected: Efficiently re-render entire list if column is sorted
-Current: This is just sorting the _next_ rows that are attached, so you see no sorting in 'real time', but you see the entire list re-sorted (with new rows attached) if you scroll down. Needs fixing. However, sorting and infinite scroll seem like anti-patterns of each other, but I took a crack at it.
+Current: This is just sorting the _next_ rows that are attached, so you see no sorting in 'real time', but you see the entire list re-sorted (with new rows attached) if you scroll down. Needs fixing. However, sorting and infinite scroll seem like anti-patterns of each other, but I took a crack at it. 
 
 Expected: Column resizer should apply to all columns
 Current: Because this is rendered as many tables appended to each other, the column resizer, sort etc are only applied to the 'current table' in view. It's done this way because appending table rows without `tbody` or by using a `React.Fragment` throws an error. Needs fixing.
 
 Expected: Infite scroll should only append new fetches
-Current: In order to get the sorting to work I actually reappend the people already in `this.state.people` while adding and sorting newly fetched people. I can acheive the expected behavior by changing what is set in state on `line:36`, but then sorting doesnt work.
+Current: In order to get the sorting to work I actually reappend the people already in `this.state.people` while adding and sorting newly fetched people. I can acheive the expected behavior by changing what is set in state on `line:36`, but then sorting doesnt work. The fix: Strip `<table>` elements and change all to `RowContainer` and `Row` components, then handle column resizing some other way.
 
 ## Available Scripts
 
