@@ -1,37 +1,67 @@
 .TableHeader {
-  width: 100%; 
-  text-align: left; 
-  background-color: #6a7b76; 
-  color: rgb(255, 255, 255);
-  padding: 20px;
+	text-align: left;
+	background-color: #6a7b76;
+	color: rgb(255, 255, 255);
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 0;
+	font-weight: 600;
+	position: sticky;
+	top: 0;
 }
 
+li {
+	list-style-type: none;
+	justify-content: stretch;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.span {
+	padding: 10px 20px;
+	justify-content: flex-start;
+}
+
+div.TableRow {
+	text-align: left;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+	border-bottom: solid 1px #c0c1b0;
+	flex-wrap: nowrap;
+}
+/* 
 table {
   border-collapse: collapse;
   font-family: sans-serif;
   width: 100%;
   text-align: left;
-}
+} */
 
-tr {
+/* tr {
   border-bottom: 0.5px solid rgb(193, 191, 191);
-}
-
+} */
+/* 
 td {
   padding: 5px 15px;
-}
+} */
 
-th {
+/* th {
   padding: 10px 15px;
-}
+} */
 
-td.col-resizer {
-  /* width: 0.05em; */
-  background-color: rgba(193, 191, 191, 0.317);
-  padding: 1px;
+.col-resizer {
+	background-color: rgba(193, 191, 191, 0.317);
+	padding: 0 1px;
+	height: 30px;
 }
 
 .SortByName:hover {
-  cursor: pointer;
-  background-color: #7e938c; 
+	cursor: pointer;
+	border-bottom: #7e938c 2px solid;
 }
