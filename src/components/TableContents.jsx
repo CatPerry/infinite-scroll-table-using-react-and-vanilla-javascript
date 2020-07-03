@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ColumnResizer from './reactColumnResizerRefactor'; // 'react-column-resizer';
 import { orderBy } from 'lodash';
 
+import TableBody from './TableBody';
+import TableHeader from './TableHeader';
 import './TableContents.css';
 
 export class TableContents extends Component {
@@ -86,51 +87,14 @@ export class TableContents extends Component {
 		});
 	};
 
-	/** Renders */
-	renderTableHeader = () => {
-		return (
-			<ul className='TableHeader'>
-				<li className='SortByName' onClick={() => this.handleColumnHeaderClick('name.first')}>
-					Name
-				</li>
-				<ColumnResizer className='col-resizer' minWidth={0} />
-				<li>Phone</li>
-				<ColumnResizer className='col-resizer' minWidth={0} />
-				<li>Email</li>
-				<ColumnResizer className='col-resizer' minWidth={0} />
-				<li>Age</li>
-				<ColumnResizer className='col-resizer' minWidth={0} />
-				<li>Image</li>
-			</ul>
-		);
-	};
-
-	renderTableRows = (data = this.state.people) => {
-		return data.map((person) => {
-			return (
-				<div key={person.login.sha1} className='TableRow'>
-					<span className='name'>{person.name.first}</span>
-					<ColumnResizer className='col-resizer' minWidth={0} />
-					<span className='number'>{person.phone}</span>
-					<ColumnResizer className='col-resizer' minWidth={0} />
-					<span className='email'>{person.email}</span>
-					<ColumnResizer className='col-resizer' minWidth={0} />
-					<span className='age'>{person.dob.age}</span>
-					<ColumnResizer className='col-resizer' minWidth={0} />
-					<span className='image'>
-						<img className='image' src={person.picture.thumbnail} alt='random user' />
-					</span>
-				</div>
-			);
-		});
-	};
-
 	render() {
 		return (
-			<div className='container'>
-				{this.renderTableHeader()}
-				{this.renderTableRows()}
-				<div id='end-table-0'></div>
+			<div className='TableContainer'>
+				<TableHeader onClick={() => this.handleColumnHeaderClick('name.first')} />
+				<div className='TableBody'>
+					<TableBody data={this.state.people} />
+					<div id='end-table-0'></div>
+				</div>
 			</div>
 		);
 	}

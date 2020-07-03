@@ -1,67 +1,67 @@
+body {
+	box-sizing: border-box;
+}
+
+.TableContainer {
+	width: 100%;
+	display: table;
+}
+
 .TableHeader {
+	display: table-header-group;
 	text-align: left;
-	background-color: #6a7b76;
-	color: rgb(255, 255, 255);
-	padding: 20px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin-top: 0;
+	background-color: #b5d2eb;
 	font-weight: 600;
-	position: sticky;
-	top: 0;
 }
 
 li {
+	display: table-cell;
+	position: sticky;
+	top: 0;
+	padding: 20px 0 15px 10px;
+	background-color: #b5d2eb;
+	color: rgb(82, 82, 82);
+	font-weight: 600;
 	list-style-type: none;
-	justify-content: stretch;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
 }
 
-.span {
-	padding: 10px 20px;
-	justify-content: flex-start;
+.TableBody {
+	display: table-row-group;
 }
 
 div.TableRow {
 	text-align: left;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
-	border-bottom: solid 1px #c0c1b0;
-	flex-wrap: nowrap;
+	display: table-row;
+	font-size: 0.9em;
 }
-/* 
-table {
-  border-collapse: collapse;
-  font-family: sans-serif;
-  width: 100%;
-  text-align: left;
-} */
 
-/* tr {
-  border-bottom: 0.5px solid rgb(193, 191, 191);
-} */
-/* 
-td {
-  padding: 5px 15px;
-} */
+.TableRow span {
+	display: table-cell;
+	border-bottom: solid 1px #a1bad0;
+}
 
-/* th {
-  padding: 10px 15px;
-} */
+.Name,
+.Number,
+.Email,
+.Age {
+	padding: 0 0 10px 10px;
+}
+
+.Image {
+	padding: 5px 0 0 5px;
+}
 
 .col-resizer {
-	background-color: rgba(193, 191, 191, 0.317);
-	padding: 0 1px;
+	background-color: #a1bad0;
+	padding: 0 0.6px;
+	width: 0.6px;
 	height: 30px;
 }
 
 .SortByName:hover {
 	cursor: pointer;
-	border-bottom: #7e938c 2px solid;
+	background-color: #a1bad0;
+	color: white;
+	font-weight: 700;
+	transition: ease-in-out 0.15s;
 }

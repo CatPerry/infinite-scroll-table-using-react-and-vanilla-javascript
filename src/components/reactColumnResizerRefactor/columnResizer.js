@@ -1,11 +1,8 @@
 /** Original NPM package: react-column-resizer
  * Modified to remove table elements, i.e., <td> because this implementation
- * uses divs and spans rather than table elements. This mod avoids error
- * messages of '<td> elements not being allowed as children of <div>s'.
+ * uses divs and spans rather than table elements. This modification avoids
+ * error messages of '<td> elements not being allowed as children of <div>s'.
  */
-
-// eslint-disable-next-line
-'use strict';
 
 Object.defineProperty(exports, '__esModule', {
 	value: true,

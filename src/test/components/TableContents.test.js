@@ -1,35 +1,43 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import "isomorphic-fetch";
+import 'isomorphic-fetch';
 
 import TableContents from './../../components/TableContents.jsx';
-import PeopleFixture from './../fixtures';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-export const InView = ({ children }) => children({ inView: true, ref: null });
+const spyScrollTo = jest.fn();
 
 beforeEach(() => {
-  // mock IntersectionObserver, which isn't avail in Jest
-  const observe = jest.fn();
-  const unobserve = jest.fn();
+	// mock IntersectionObserver
+	const observe = jest.fn();
+	const unobserve = jest.fn();
 
-  window.IntersectionObserver = jest.fn(() => ({
-    observe,
-    unobserve,
-  }));
+	window.IntersectionObserver = jest.fn(() => ({
+		observe,
+		unobserve,
+	}));
+
+	Object.defineProperty(global.window, 'scrollTo', { value: spyScrollTo });
+	Object.defineProperty(global.window, 'scrollY', { value: 1 });
+	spyScrollTo.mockClear();
 });
 
 test('<TableContents/> exists', () => {
-  const wrapper = shallow(<TableContents />);
-  expect(wrapper.exists()).toBe(true);
+	const wrapper = shallow(<TableContents />);
+	expect(wrapper.exists()).toBe(true);
 });
 
-it('should find the populated table', () => {
-  const wrapper = mount(<TableContents />);
-  wrapper.setState({ people: PeopleFixture });
-
-  console.log(wrapper.debug());
+it('if there are no people in state, table body will be empty', () => {
+	const wrapper = shallow(<TableContents />);
+	expect(wrapper.find('.TableRow')).toHaveLength(0);
 });
 
+// test('intersectionOberserver should be called on scroll', async () => {
+// 	const wrapper = shallow(<TableContents />);
+// 	wrapper.setState({ people: PeopleFixture });
+// 	const scrollToSpy = jest.fn();
+// 	global.scrollTo = scrollToSpy;
+
+// 	expect(scrollToSpy).toHaveBeenCalled();
+// });
