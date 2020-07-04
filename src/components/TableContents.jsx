@@ -95,7 +95,11 @@ export class TableContents extends Component {
 				aria-label='Table of People'
 				aria-describedby='semantic_elements_table_desc'
 			>
-				<TableHeader onClick={() => this.handleColumnHeaderClick('name.first')} role='rowgroup' />
+				<TableHeader
+					onClick={() => this.handleColumnHeaderClick('name.first')}
+					role='rowgroup'
+					sortOrder={this.state.sortParams.direction}
+				/>
 				<div className='TableBody' role='rowgroup'>
 					<TableBody data={this.state.people} />
 					<div id='end-table-0'></div>

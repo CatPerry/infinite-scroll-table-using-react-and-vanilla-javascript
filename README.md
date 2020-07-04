@@ -4,13 +4,17 @@
 
 ### *Includes lazy loading, sorting & column resizing*
 
-This is an infinite scroll/lazy load table built in React without the use of any common react table libraries. It utilizes the JavaScript `intersecitonObserver` API to implement infinite scroll; `lodash` for column sorting; and an NPM package called `react-column-resizer` is modifed and used here to resize columns.
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/993af3e3baf648e493dd6e7c8caf4817" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+This is an infinite scroll/lazy load table built in React without the use of any react table libraries. It utilizes the JavaScript `intersecitonObserver` API to implement infinite scroll; `lodash` for column sorting; and an NPM package called `react-column-resizer` is modifed and used here to resize columns.
 
 ## Behavior
 
-**As you scroll, new names are fetched in chunks of 10 and added to the sorted list, maintaining the correct order throughout.**
+- As you scroll, new names are fetched in chunks of 10 and added to the sorted list, maintaining the correct order throughout.
 
-**Header remains sticky on top of view window for easy access, changing of sort order.**
+- Header remains sticky on top of view window for easy access, changing of sort order.
+
+- Columns are resizable
 
 ## Available Scripts
 
