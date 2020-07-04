@@ -37,7 +37,7 @@ div.TableRow {
 
 .TableRow span {
 	display: table-cell;
-	border-bottom: solid 1px #a1bad0;
+	border-bottom: solid 1px #afb8bf;
 }
 
 .Name,
@@ -47,14 +47,14 @@ div.TableRow {
 	padding: 0 0 10px 10px;
 }
 
-.Image {
-	padding: 5px 0 0 5px;
+img {
+	margin: 10px 0 -5px 10px;
 }
 
 .col-resizer {
-	background-color: #a1bad0;
-	padding: 0 0.6px;
-	width: 0.6px;
+	background-color: #afb8bf;
+	padding: 0 0.5px;
+	width: 0.5px;
 	height: 30px;
 }
 

@@ -89,9 +89,14 @@ export class TableContents extends Component {
 
 	render() {
 		return (
-			<div className='TableContainer'>
-				<TableHeader onClick={() => this.handleColumnHeaderClick('name.first')} />
-				<div className='TableBody'>
+			<div
+				className='TableContainer'
+				role='table'
+				aria-label='Table of People'
+				aria-describedby='semantic_elements_table_desc'
+			>
+				<TableHeader onClick={() => this.handleColumnHeaderClick('name.first')} role='rowgroup' />
+				<div className='TableBody' role='rowgroup'>
 					<TableBody data={this.state.people} />
 					<div id='end-table-0'></div>
 				</div>

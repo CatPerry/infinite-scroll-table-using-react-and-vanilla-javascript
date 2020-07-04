@@ -1,20 +1,33 @@
 import React from 'react';
 import ColumnResizer from './reactColumnResizerRefactor'; // 'react-column-resizer';
 
-const TableHeader = ({ onClick }) => {
+const TableHeader = ({ onClick, color }) => {
 	return (
-		<ul className='TableHeader'>
-			<li className='SortByName' onClick={onClick}>
+		<ul className='TableHeader' style={{ backgroundColor: color }} role='row'>
+			<li
+				className='SortByName'
+				onClick={onClick}
+				style={{ backgroundColor: color }}
+				role='columnheader'
+			>
 				Name
 			</li>
 			<ColumnResizer className='col-resizer' minWidth={0} />
-			<li>Phone</li>
+			<li style={{ backgroundColor: color }} role='columnheader'>
+				Phone
+			</li>
 			<ColumnResizer className='col-resizer' minWidth={0} />
-			<li>Email</li>
+			<li style={{ backgroundColor: color }} role='columnheader'>
+				Email
+			</li>
 			<ColumnResizer className='col-resizer' minWidth={0} />
-			<li>Age</li>
+			<li style={{ backgroundColor: color }} role='columnheader'>
+				Age
+			</li>
 			<ColumnResizer className='col-resizer' minWidth={0} />
-			<li>Image</li>
+			<li style={{ backgroundColor: color }} role='columnheader'>
+				Image
+			</li>
 		</ul>
 	);
 };

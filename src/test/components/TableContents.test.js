@@ -1,11 +1,9 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import 'isomorphic-fetch';
 
 import TableContents from './../../components/TableContents.jsx';
 
-Enzyme.configure({ adapter: new Adapter() });
 const spyScrollTo = jest.fn();
 
 beforeEach(() => {
@@ -28,7 +26,7 @@ test('<TableContents/> exists', () => {
 	expect(wrapper.exists()).toBe(true);
 });
 
-it('if there are no people in state, table body will be empty', () => {
+test('if there are no people in state, table body will be empty', () => {
 	const wrapper = shallow(<TableContents />);
 	expect(wrapper.find('.TableRow')).toHaveLength(0);
 });

@@ -1,10 +1,8 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import App from './../../components/App.jsx';
 import TableContents from './../../components/TableContents';
-Enzyme.configure({ adapter: new Adapter() });
 
 beforeEach(() => {
 	// mock IntersectionObserver, which isn't avail in Jest
