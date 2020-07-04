@@ -53,8 +53,7 @@ img {
 
 .col-resizer {
 	background-color: #afb8bf;
-	padding: 0 0.5px;
-	width: 0.5px;
+	width: 3px;
 	height: 30px;
 }
 

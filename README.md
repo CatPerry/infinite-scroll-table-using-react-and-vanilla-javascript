@@ -6,6 +6,12 @@
 
 This is an infinite scroll/lazy load table built in React without the use of any common react table libraries. It utilizes the JavaScript `intersecitonObserver` API to implement infinite scroll; `lodash` for column sorting; and an NPM package called `react-column-resizer` is modifed and used here to resize columns.
 
+## Behavior
+
+**As you scroll, new names are fetched in chunks of 10 and added to the sorted list, maintaining the correct order throughout.**
+
+**Header remains sticky on top of view window for easy access, changing of sort order.**
+
 ## Available Scripts
 
 In the project directory `simple-app/`, run:

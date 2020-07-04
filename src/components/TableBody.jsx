@@ -8,19 +8,19 @@ const TableBody = ({ data }) => {
 				<span className='Name' role='cell'>
 					{person.name.first}
 				</span>
-				<ColumnResizer className='col-resizer' />
+				<ColumnResizer className='col-resizer' minWidth={0} />
 				<span className='Number' role='cell'>
 					{person.phone}
 				</span>
-				<ColumnResizer className='col-resizer' />
+				<ColumnResizer className='col-resizer' minWidth={0} />
 				<span className='Email' role='cell'>
 					{person.email}
 				</span>
-				<ColumnResizer className='col-resizer' />
+				<ColumnResizer className='col-resizer' minWidth={0} />
 				<span className='Age' role='cell'>
 					{person.dob.age}
 				</span>
-				<ColumnResizer className='col-resizer' />
+				<ColumnResizer className='col-resizer' minWidth={0} />
 				<span role='cell'>
 					<img src={person.picture.thumbnail} alt='random user' />
 				</span>
